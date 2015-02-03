@@ -5,14 +5,14 @@ action :create do
       action :create
       only_if { new_resource.gid.nil? }
     end
-    
+
     group_id = new_resource.gid.nil? ? new_resource.username : new_resource.gid
 
     user new_resource.username do
       gid group_id
       home home_dir
       password new_resource.password unless new_resource.password.nil?
-      shell new_resource.shell || node['user']['default_shell']
+      shell new_resource.shell || node['user_account']['default_shell']
       uid new_resource.uid unless new_resource.uid.nil?
       action :create
     end
@@ -40,7 +40,7 @@ action :create do
         group group_id
         action :create
         source 'authorized_keys.erb'
-        cookbook 'user'
+        cookbook 'user_account'
         variables(keys: ssh_keys)
       end
     end
@@ -129,7 +129,7 @@ def home_dir
   else
     home = new_resource.home
   end
-  ::File.join(node['user']['home_root'], home)
+  ::File.join(node['user_account']['home_root'], home)
 end
 
 def add_user_account

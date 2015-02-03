@@ -1,5 +1,9 @@
-user CHANGELOG
-==============
+user_account CHANGELOG
+======================
+
+1.0.0
+-----
+- [jarosser06] - Renamed cookbook to user_account
 
 0.3.1
 -----

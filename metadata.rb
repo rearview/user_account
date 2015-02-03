@@ -1,10 +1,10 @@
-name             'user'
+name             'user_account'
 maintainer       'Texas A&M'
-maintainer_email 'jarosser06@tamu.edu'
+maintainer_email 'jarosser06@gmail.com'
 license          'MIT'
-description      'Installs/Configures user'
+description      'Provides a resource for user_account'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.3.1'
+version          '1.0.0'
 
 %w(ubuntu centos omnios suse).each do |os|
   supports os

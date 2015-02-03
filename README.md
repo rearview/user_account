@@ -1,5 +1,5 @@
-User Cookbook
-=============
+User_account Cookbook
+=====================
 Provides a lwrp to manage user accounts on systems.
 
 Attributes
@@ -13,13 +13,13 @@ Attributes
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['user']['root_home']</tt></td>
+    <td><tt>['user_account']['root_home']</tt></td>
     <td>String</td>
     <td>default root home path</td>
     <td><tt>/home</tt></td>
   </tr>
   <tr>
-    <td><tt>['user']['default_shell']</tt></td>
+    <td><tt>['user_account']['default_shell']</tt></td>
     <td>String</td>
     <td>default shell to use per platform</td>
     <td><tt>/bin/bash</tt></td>
@@ -48,21 +48,6 @@ Resource/Provider
 - **include_nodes** - only add user to list of nodes
 - **exclude_nodes** - don't add user to list of nodes
 
-Usage
------
-#### user::default
-
-Just include `user` in your node's `run_list`:
-
-```json
-{
-  "name":"my_node",
-  "run_list": [
-    "recipe[user]"
-  ]
-}
-```
-
 Contributing
 ------------
 1. Fork the repository on Github
@@ -74,7 +59,7 @@ Contributing
 
 License and Authors
 -------------------
-- Author:: Jim Rosser(jarosser06@tamu.edu)
+- Author:: Jim Rosser(jarosser06@gmail.com)
 
 ```text
 copyright (C) 2014 Texas A&M

@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: user
+# Cookbook Name:: user_account
 # Recipe:: default
 #
 # Copyright 2014, Texas A&M
