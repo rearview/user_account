@@ -125,11 +125,11 @@ end
 
 def home_dir
   if new_resource.home.nil?
-    home = new_resource.username
+    ::File.join(node['user_account']['home_root'],
+                new_resource.username)
   else
-    home = new_resource.home
+    new_resource.home
   end
-  ::File.join(node['user_account']['home_root'], home)
 end
 
 def add_user_account
