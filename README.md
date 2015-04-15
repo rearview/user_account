@@ -13,7 +13,7 @@ Attributes
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['user_account']['root_home']</tt></td>
+    <td><tt>['user_account']['home_root']</tt></td>
     <td>String</td>
     <td>default root home path</td>
     <td><tt>/home</tt></td>
@@ -29,13 +29,16 @@ Attributes
 Resource/Provider
 -----------------
 
-## user_account
+### user_account
+Note: If you do not set the ssh_keys attribute then this resource
+will ignore the authorized_keys file and you can manage it in
+another way.
 
-### Actions
+#### Actions
 - **create** - creates a user
 - **delete** - deletes a user
 
-### Attributes
+#### Attributes
 - **username** - name of user account
 - **password** - user password
 - **default_group** - name of an existing default group to place user in (instead of creating a group same as username)
@@ -47,6 +50,21 @@ Resource/Provider
 - **shell** - shell to use
 - **include_nodes** - only add user to list of nodes
 - **exclude_nodes** - don't add user to list of nodes
+
+```ruby
+user_account 'jim' do
+  action :create
+  uid 1026
+  groups %w(wheel)
+  ssh_keys 'not a real ssh key'
+end
+
+user_account 'richard' do
+  action :create
+  groups %w(devs wheel)
+  password 'richardspass'
+end
+```
 
 Contributing
 ------------
@@ -62,7 +80,7 @@ License and Authors
 - Author:: Jim Rosser(jarosser06@gmail.com)
 
 ```text
-copyright (C) 2014 Texas A&M
+copyright (C) 2014-2015 Texas A&M
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
