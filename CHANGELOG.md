@@ -1,6 +1,10 @@
 user_account CHANGELOG
 ======================
 
+1.1.0
+-----
+- [jarosser06] - Home attr no longer has /home prepended to it
+
 1.0.0
 -----
 - [jarosser06] - Renamed cookbook to user_account
